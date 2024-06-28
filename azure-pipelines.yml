@@ -26,5 +26,5 @@ steps:
 
 - script: |
     python testfile.py
-    python print(123)
+    python testfile.py
   displayName: 'testfile'
