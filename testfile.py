@@ -3,6 +3,7 @@ import requests
 from requests.auth import HTTPBasicAuth  
 import json
 import base64  
+import sys 
 
 # 获取脚本文件所在的目录  
 script_dir = os.path.dirname(os.path.abspath(__file__))  
@@ -11,6 +12,16 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 print("脚本所在目录是:", script_dir)
 print(12333333)
 
+# 检查是否有足够的参数  
+if len(sys.argv) < 2:  
+    print("Usage: python example.py <parameter1> [<parameter2> ...]")  
+    sys.exit(1)  
+  
+# 打印所有参数  
+print("Script name:", sys.argv[0])  
+for i in range(1, len(sys.argv)):  
+    print("Parameter", i, ":", sys.argv[i])
+  
 def query_workitems(ql_str):
 
    # Azure DevOps组织URL（注意替换为你的组织名）  
