@@ -30,6 +30,6 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    python testfile.py --organization $(organization) --project $(project) --query_id $(query_id) 
-    python testfile.py --organization $(organization) --project $(project) --query_id $(query_id) 
+    python testfile.py $(organization) $(project) $(query_id) 
+    python testfile.py $(organization) $(project) $(query_id) 
   displayName: 'testfile'
