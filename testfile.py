@@ -1,6 +1,6 @@
 import os  
-import requests  
-from requests.auth import HTTPBasicAuth  
+#import requests
+#from requests.auth import HTTPBasicAuth  
 import json
 import base64  
 import sys 
