@@ -6,6 +6,11 @@
 trigger:
 - main
 
+variables:  
+  organization: 'your-organization'  
+  project: 'your-project'  
+  query_id: 'your-query-id'  # 或者直接使用查询的WIQL字符串（如果API支持）  
+  
 pool:
   vmImage: ubuntu-latest
 strategy:
@@ -25,6 +30,6 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    python testfile.py
-    python testfile.py
+    python testfile.py --organization $(organization) --project $(project) --query_id $(query_id) 
+    python testfile.py --organization $(organization) --project $(project) --query_id $(query_id) 
   displayName: 'testfile'
