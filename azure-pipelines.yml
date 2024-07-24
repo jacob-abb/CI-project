@@ -8,7 +8,7 @@ trigger:
 
 variables:  
   organization: 'your-organization'  
-  project: 'your-project'  
+  project: 'your-yuanxiao'  
   query_id: 'your-query-id'  # 或者直接使用查询的WIQL字符串（如果API支持）  
   
 pool:
