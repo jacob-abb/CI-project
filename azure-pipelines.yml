@@ -7,9 +7,8 @@ trigger:
 - main
 
 variables:  
-  organization: 'your-organization'  
-  project: 'your-yuanxiao'  
-  query_id: 'your-query-id'  # 或者直接使用查询的WIQL字符串（如果API支持）  
+  organization: 'https://dev.azure.com/ABB-BCI-PCP/'  
+  project: 'PCP-Test'  
   
 pool:
   vmImage: ubuntu-latest
@@ -30,6 +29,5 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    python testfile.py $(organization) $(project) $(query_id) 
     python testfile.py $(organization) $(project) $(query_id) 
   displayName: 'testfile'
