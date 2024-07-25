@@ -52,43 +52,43 @@ def query_workitems(ql_str):
          print(work_item)
          #print(f"Work Item ID: {work_item['id']}, Title: {work_item['fields']['System.Title']}")  
 
-         # 构造获取工作项详情的URL  
-         #print(work_item['url'].split("/")[-1])				  
-         wiql_url = f'{organization_url}/{project_name}/_apis/wit/workItems/{work_item['url'].split("/")[-1]}'  
-         # 创建头部信息  
-         encoded_credentials = base64.b64encode(f":{personal_access_token}".encode('ascii')).decode('ascii')  
+         # # 构造获取工作项详情的URL  
+         # #print(work_item['url'].split("/")[-1])				  
+         # wiql_url = f'{organization_url}/{project_name}/_apis/wit/workItems/{work_item['url'].split("/")[-1]}'  
+         # # 创建头部信息  
+         # encoded_credentials = base64.b64encode(f":{personal_access_token}".encode('ascii')).decode('ascii')  
 
-         headers = {  
-            'Authorization': f'Basic {encoded_credentials}',  
-            'Content-Type': 'application/json'  
-         }  
-         #print(wiql_url)
-         response = requests.get(wiql_url, headers=headers) 
-         # 检查响应状态码  
-         if response.status_code == 200:  
-            # 解析响应内容  
-            work_item = response.json()  
-            # 打印工作项的详细信息  
-            info = json.dumps(work_item, indent=4) 
-            #print(info)
-            print(work_item['_links']['workItemType']['href'])
+         # headers = {  
+         #    'Authorization': f'Basic {encoded_credentials}',  
+         #    'Content-Type': 'application/json'  
+         # }  
+         # #print(wiql_url)
+         # response = requests.get(wiql_url, headers=headers) 
+         # # 检查响应状态码  
+         # if response.status_code == 200:  
+         #    # 解析响应内容  
+         #    work_item = response.json()  
+         #    # 打印工作项的详细信息  
+         #    info = json.dumps(work_item, indent=4) 
+         #    #print(info)
+         #    print(work_item['_links']['workItemType']['href'])
 
-            response = requests.get(work_item['_links']['workItemType']['href'], headers=headers) 
-            if response.status_code == 200:  
-               # 解析响应内容  
-               work_item = response.json()  
-               info = json.dumps(work_item, indent=4) 
+         #    response = requests.get(work_item['_links']['workItemType']['href'], headers=headers) 
+         #    if response.status_code == 200:  
+         #       # 解析响应内容  
+         #       work_item = response.json()  
+         #       info = json.dumps(work_item, indent=4) 
 
-               print(work_item["transitions"])
-               for con in work_item["states"]:
-                  print(con)
-               print(work_item["states"])
-               for con in work_item["states"]:
-                  print(con)
-         else:  
-            print(f"Failed to retrieve work item details. Status code: {response.status_code}")  
-            print("Response content:")  
-            print(response.text)
+         #       print(work_item["transitions"])
+         #       for con in work_item["states"]:
+         #          print(con)
+         #       print(work_item["states"])
+         #       for con in work_item["states"]:
+         #          print(con)
+         # else:  
+         #    print(f"Failed to retrieve work item details. Status code: {response.status_code}")  
+         #    print("Response content:")  
+         #    print(response.text)
 
    else:  
       print(f"Failed to retrieve work items. Status code: {response.status_code}, Error: {response.text}")
