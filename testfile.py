@@ -99,7 +99,7 @@ ql_str = """
 }  
 """  
 
-#query_workitems(ql_str)
+query_workitems(ql_str)
 
 # 构造WIQL查询以获取Epic和Feature的基本信息  
 ql_str = """
