@@ -48,7 +48,7 @@ def query_workitems(ql_str):
    if response.status_code == 200:  
       # 解析响应内容  
       work_items = response.json()['workItems']  
-      for work_item in work_items[0:1]:  
+      for work_item in work_items[0:50]:  
          print(work_item)
          #print(f"Work Item ID: {work_item['id']}, Title: {work_item['fields']['System.Title']}")  
 
