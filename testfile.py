@@ -22,9 +22,9 @@ print("Script name:", sys.argv[0])
 for i in range(1, len(sys.argv)):  
     print("Parameter", i, ":", sys.argv[i])
 
-organization = sys.argv[0]
-project = sys.argv[1]
-query_id = sys.argv[2]
+organization = sys.argv[1]
+project = sys.argv[2]
+query_id = sys.argv[3]
 
 def query_workitems(ql_str):
 
