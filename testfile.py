@@ -291,7 +291,7 @@ if True:
 			# 哪些行不包含NaN值  
 			new_rows_notnan = new_rows[new_rows["Effort"].notnull()] # 新增不包含NaN值
 	
-			print(f"Compared last STECO, {new_rows.shape[0]} new {key} added with {new_rows_notnan["Effort"].sum()} manhours increased. Link to increased Features\n")
+			print(f"Compared last STECO, {new_rows.shape[0]} new {key} added with {new_rows_notnan['Effort'].sum()} manhours increased. Link to increased Features\n")
 			df_new_rows_md_table = new_rows.to_markdown()  
 			print(df_new_rows_md_table)
 	
