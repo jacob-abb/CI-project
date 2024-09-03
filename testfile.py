@@ -41,13 +41,13 @@ if True:
 
 	# 检查是否有足够的参数  
 	if len(sys.argv) < 2:  
-	print("Usage: python example.py <parameter1> [<parameter2> ...]")  
-	sys.exit(1)  
+		print("Usage: python example.py <parameter1> [<parameter2> ...]")  
+		sys.exit(1)  
 	
 	# 打印所有参数  
 	print("Script name:", sys.argv[0])  
 	for i in range(1, len(sys.argv)):  
-	print("Parameter", i, ":", sys.argv[i])
+		print("Parameter", i, ":", sys.argv[i])
 	
 	organization = sys.argv[1]
 	project = sys.argv[2]
