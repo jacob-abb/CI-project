@@ -306,8 +306,8 @@ if True:
 	
 			# convert to the html table display
 			# 创建 Table 组件  
-			include_result0 = generate_table_html(new_rows, f"Have {key} been added to the scope since last STECO? (M10)({len(new_rows)} {key} added, with {new_rows["Effort"].sum()} manhours (effort) in total)")
-			include_result1 = generate_table_html(changed_rows, f"Has {key} effort increased since last STECO? (M3-M5) ({key} added {len(new_rows)} , {new_rows_notnan["Effort"].sum()} manhours increased, including {len(new_rows_nan)} without estimation)")
+			include_result0 = generate_table_html(new_rows, f"Have {key} been added to the scope since last STECO? (M10)({len(new_rows)} {key} added, with {new_rows['Effort'].sum()} manhours (effort) in total)")
+			include_result1 = generate_table_html(changed_rows, f"Has {key} effort increased since last STECO? (M3-M5) ({key} added {len(new_rows)} , {new_rows_notnan['Effort'].sum()} manhours increased, including {len(new_rows_nan)} without estimation)")
 	
 		#####################################################################################################
 	
