@@ -197,7 +197,7 @@ if True:
 				print("第一级:", work_item)
 				# 构造获取工作项详情的URL  
 				#print(work_item['url'].split("/")[-1])				  
-				wiql_url = f'{organization_url}/{project_name}/_apis/wit/workItems/{work_item['url'].split("/")[-1]}'  
+				wiql_url = f'{organization_url}/{project_name}/_apis/wit/workItems/{work_item["url"].split("/")[-1]}'  
 				# 创建头部信息  
 				encoded_credentials = base64.b64encode(f":{personal_access_token}".encode('ascii')).decode('ascii')  
 	
