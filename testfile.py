@@ -9,6 +9,7 @@ from requests.auth import HTTPBasicAuth
 import json
 import base64
 import os  
+import sys
 
 # 参数设置
 pd.set_option('display.expand_frame_repr',False) # False不允许换行
