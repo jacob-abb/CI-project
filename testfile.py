@@ -39,7 +39,14 @@ if True:
 	
 	# 打印脚本文件所在的目录  
 	print("脚本所在目录是:", script_dir)
-
+	
+	for dirpath, dirnames, filenames in os.walk("/home"):  
+		print(f"当前目录: {dirpath}")  
+		for dirname in dirnames:  
+			print(f"子目录: {dirname}")  
+		for filename in filenames:  
+	   		 print(f"文件: {filename}")  
+		
 	# 检查是否有足够的参数  
 	if len(sys.argv) < 2:  
 		print("Usage: python example.py <parameter1> [<parameter2> ...]")  
