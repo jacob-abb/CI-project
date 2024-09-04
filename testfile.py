@@ -245,7 +245,7 @@ if True:
 			df_total = df_total.loc[:, list(useful_info.keys())]
 			df_total = df_total.rename(columns=useful_info)  
 			df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
-			df_total.to_csv(f'output-{DEF_TYPE}.csv', index=False) 
+			df_total.to_csv(f'{/home/vsts/work/1/s/}output-{DEF_TYPE}.csv', index=False) 
 			print(df_total)
 		else:  
 			print(f"Failed to retrieve work items. Status code: {response.status_code}, Error: {response.text}")
