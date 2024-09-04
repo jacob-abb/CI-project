@@ -66,7 +66,7 @@ if True:
 	# Azure DevOps REST API版本  
 	api_version = "6.0"  
 	
-	DEF_TYPE = ""
+	DEF_TYPE = "Bug"
 	
 	if DEF_TYPE == "Bug":
 		useful_info = {"id": "id",
@@ -417,12 +417,12 @@ if True:
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\baseline 7.0 HMI-Feature-Epic.csv", 
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\current output-Feature-Epic.csv"
 	
-	compare_feature_epic_state(baseline_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\NGT HMI 7.0xP0 Features-Epic.csv", 
-						   current_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\output-Epic_Feature-Operations-Client.csv")
+	# compare_feature_epic_state(baseline_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\NGT HMI 7.0xP0 Features-Epic.csv", 
+	# 					   current_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\output-Epic_Feature-Operations-Client.csv")
 	
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Scope bugs 7.0 HMI-07192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Introduced bugs 7.0 HMI-7192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\output-Bugs.csv"
-	compare_bugs(baseline_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\Scope bugs xP0 7.0 HMI- 07192024.csv", 
-			  introduced_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\ALL Introduced bugs xP0 HMI - 07192024.csv",
-				current_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\output-Bug-Operations-Client.csv")		   
+	# compare_bugs(baseline_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\Scope bugs xP0 7.0 HMI- 07192024.csv", 
+	# 		  introduced_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\ALL Introduced bugs xP0 HMI - 07192024.csv",
+	# 			current_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\output-Bug-Operations-Client.csv")		   
