@@ -40,7 +40,7 @@ if True:
 	# 打印脚本文件所在的目录  
 	print("脚本所在目录是:", script_dir)
 	
-	for dirpath, dirnames, filenames in os.walk("/home"):  
+	for dirpath, dirnames, filenames in os.walk("/home/vsts/work/1/s"):  
 		print(f"当前目录: {dirpath}")  
 		for dirname in dirnames:  
 			print(f"子目录: {dirname}")  
