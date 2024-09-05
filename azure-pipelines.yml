@@ -34,6 +34,6 @@ steps:
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: 'branches'  
+    PathtoPublish: '/.git/branches'  
     ArtifactName: 'drop'  
     publishLocation: 'Container'
