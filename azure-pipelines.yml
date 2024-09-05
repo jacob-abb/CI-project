@@ -35,5 +35,5 @@ steps:
 - task: PublishBuildArtifacts@1  
   inputs:  
     PathtoPublish: '.git/branches'  
-    ArtifactName: 'drop'  
+    ArtifactName: 'output-Bug.csv'  
     publishLocation: 'Container'
