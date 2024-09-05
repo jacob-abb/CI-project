@@ -31,3 +31,9 @@ steps:
 - script: |
     python testfile.py $(organization) $(project) $(query_id) 
   displayName: 'testfile'
+
+- task: PublishBuildArtifacts@1  
+  inputs:  
+    PathtoPublish: 'output'  
+    ArtifactName: 'drop'  
+    publishLocation: 'Container'
