@@ -27,7 +27,7 @@ def generate_table_html(df_data, title):
 	table = Table()
 	table.add(header, rows)
 	table.set_global_opts(
-		title_opts=ComponentTitleOpts(title=title)
+		title_opts=ComponentTitleOpts(title=title) 
 	)
 	return table
 	
@@ -254,7 +254,7 @@ if True:
 			scan_folder_file(script_dir)
 			
 			# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
-			csv_file = f'./output-{DEF_TYPE}.csv'
+			csv_file = f'output-{DEF_TYPE}.csv'
 			  
 			# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
 			os.chdir(script_dir)  
@@ -264,11 +264,11 @@ if True:
 			  
 			# 提交更改到本地仓库  
 			# 注意：这里需要提供一个提交消息，你可以根据实际情况修改它  
-			subprocess.run(['git', 'commit', '-m', 'Add generated CSV file: ' + csv_file], check=True)  
-			  
+			subprocess.run(['git', 'commit', '-m', 'Add CSV file: ' + csv_file], check=True)  
+    
 			# 如果需要，将更改推送到GitHub的远程仓库  
 			# 替换'origin'为你的远程仓库名称，'main'或'master'或你的分支名为目标分支  
-			#subprocess.run(['git', 'push', 'origin', 'main'], check=True)  # 根据实际情况调整分支名  
+			# subprocess.run(['git', 'push', 'origin', 'main'], check=True)  # 根据实际情况调整分支名  
 			  
 			print('CSV文件已成功添加到Git仓库并推送到远程。')
 		else:  
