@@ -29,14 +29,24 @@ def generate_table_html(df_data, title):
 	table.set_global_opts(
 		title_opts=ComponentTitleOpts(title=title)
 	)
-
 	return table
-
+	
+def scan_folder_file(path):
+	for dirpath, dirnames, filenames in os.walk(path):  
+		print(f"当前目录: {dirpath}")  
+		for dirname in dirnames:  
+			print(f"子目录: {dirname}")  
+		for filename in filenames:  
+			 print(f"文件: {filename}")  
+					
 # generate workitems list
 if True:
+	# 查看根目录下文件
+	scan_folder_file("/home/vsts/work/1/s")
+					
 	# 获取脚本文件所在的目录  
 	script_dir = os.path.dirname(os.path.abspath(__file__))  
-	
+
 	# 打印脚本文件所在的目录  
 	print("脚本所在目录是:", script_dir)
 	
@@ -240,12 +250,8 @@ if True:
 			df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
 			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}.csv', index=False) 
 			print(df_total)
-			for dirpath, dirnames, filenames in os.walk("/home/vsts/work/1/s"):  
-				print(f"当前目录: {dirpath}")  
-				for dirname in dirnames:  
-					print(f"子目录: {dirname}")  
-				for filename in filenames:  
-			   		 print(f"文件: {filename}")  
+
+			scan_folder_file(script_dir)
 			
 			# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
 			csv_file = f'./output-{DEF_TYPE}.csv'
