@@ -34,20 +34,7 @@ def generate_table_html(df_data, title):
 
 # generate workitems list
 if True:
-
-	# 获取脚本文件所在的目录  
-	script_dir = os.path.dirname(os.path.abspath(__file__))  
 	
-	# 打印脚本文件所在的目录  
-	print("脚本所在目录是:", script_dir)
-	
-	for dirpath, dirnames, filenames in os.walk("/home/vsts/work/1/s"):  
-		print(f"当前目录: {dirpath}")  
-		for dirname in dirnames:  
-			print(f"子目录: {dirname}")  
-		for filename in filenames:  
-	   		 print(f"文件: {filename}")  
-		
 	# 检查是否有足够的参数  
 	if len(sys.argv) < 2:  
 		print("Usage: python example.py <parameter1> [<parameter2> ...]")  
@@ -249,8 +236,21 @@ if True:
 			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}.csv', index=False) 
 			print(df_total)
 
+			# 获取脚本文件所在的目录  
+			script_dir = os.path.dirname(os.path.abspath(__file__))  
+			
+			# 打印脚本文件所在的目录  
+			print("脚本所在目录是:", script_dir)
+			
+			for dirpath, dirnames, filenames in os.walk("/home/vsts/work/1/s"):  
+				print(f"当前目录: {dirpath}")  
+				for dirname in dirnames:  
+					print(f"子目录: {dirname}")  
+				for filename in filenames:  
+			   		 print(f"文件: {filename}")  
+			
 			# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
-			csv_file = f'output-{DEF_TYPE}.csv'
+			csv_file = f'./output-{DEF_TYPE}.csv'
 			  
 			# Git命令将在这个目录下执行，确保这是你的Git仓库的根目录  
 			repo_dir = '.'  # 或者指定为其他目录  
