@@ -10,7 +10,8 @@ import json
 import base64
 import os  
 import sys
-
+import subprocess  
+  
 # 参数设置
 pd.set_option('display.expand_frame_repr',False) # False不允许换行
 pd.set_option('display.max_rows', 100) # 显示的最大行数
@@ -247,6 +248,28 @@ if True:
 			df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
 			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}.csv', index=False) 
 			print(df_total)
+
+			# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
+			csv_file = f'output-{DEF_TYPE}.csv'
+			  
+			# Git命令将在这个目录下执行，确保这是你的Git仓库的根目录  
+			repo_dir = '.'  # 或者指定为其他目录  
+			  
+			# 切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
+			os.chdir(repo_dir)  
+			  
+			# 添加CSV文件到暂存区  
+			subprocess.run(['git', 'add', csv_file], check=True)  
+			  
+			# 提交更改到本地仓库  
+			# 注意：这里需要提供一个提交消息，你可以根据实际情况修改它  
+			subprocess.run(['git', 'commit', '-m', 'Add generated CSV file: ' + csv_file], check=True)  
+			  
+			# 如果需要，将更改推送到GitHub的远程仓库  
+			# 替换'origin'为你的远程仓库名称，'main'或'master'或你的分支名为目标分支  
+			subprocess.run(['git', 'push', 'origin', 'main'], check=True)  # 根据实际情况调整分支名  
+			  
+			print('CSV文件已成功添加到Git仓库并推送到远程。')
 		else:  
 			print(f"Failed to retrieve work items. Status code: {response.status_code}, Error: {response.text}")
 	
