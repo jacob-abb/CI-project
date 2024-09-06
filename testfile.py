@@ -113,7 +113,7 @@ if True:
 						"System.State": "State",
 						"System.IterationPath": "Iteration Path",	
 						"System.AreaPath": "Area Path",		
-						"System.Reason": "Reason",
+						"System.Reason": "Reason", 
 						"Microsoft.VSTS.Common.Severity": "Severity",
 						"Custom.ScopeBug": "ScopeBug",
 						"Custom.Cloned": "Cloned",
@@ -256,11 +256,8 @@ if True:
 			# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
 			csv_file = f'./output-{DEF_TYPE}.csv'
 			  
-			# Git命令将在这个目录下执行，确保这是你的Git仓库的根目录  
-			repo_dir = '.'  # 或者指定为其他目录  
-			  
-			# 切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
-			os.chdir(repo_dir)  
+			# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
+			os.chdir(script_dir)  
 			  
 			# 添加CSV文件到暂存区  
 			subprocess.run(['git', 'add', csv_file], check=True)  
