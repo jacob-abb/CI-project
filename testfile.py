@@ -267,7 +267,7 @@ if True:
 			  
 			# 如果需要，将更改推送到GitHub的远程仓库  
 			# 替换'origin'为你的远程仓库名称，'main'或'master'或你的分支名为目标分支  
-			subprocess.run(['git', 'push', 'origin', 'main'], check=True)  # 根据实际情况调整分支名  
+			#subprocess.run(['git', 'push', 'origin', 'main'], check=True)  # 根据实际情况调整分支名  
 			  
 			print('CSV文件已成功添加到Git仓库并推送到远程。')
 		else:  
