@@ -258,7 +258,10 @@ if True:
 			  
 			# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
 			os.chdir(script_dir)  
-			  
+
+			# 执行命令并获取结果  
+			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
+			print(result.stdout)  
 			# 添加CSV文件到暂存区  
 			subprocess.run(['git', 'add', csv_file], check=True)  
 			  
