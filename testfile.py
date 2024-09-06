@@ -34,6 +34,11 @@ def generate_table_html(df_data, title):
 
 # generate workitems list
 if True:
+	# 获取脚本文件所在的目录  
+	script_dir = os.path.dirname(os.path.abspath(__file__))  
+	
+	# 打印脚本文件所在的目录  
+	print("脚本所在目录是:", script_dir)
 	
 	# 检查是否有足够的参数  
 	if len(sys.argv) < 2:  
@@ -235,13 +240,6 @@ if True:
 			df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
 			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}.csv', index=False) 
 			print(df_total)
-
-			# 获取脚本文件所在的目录  
-			script_dir = os.path.dirname(os.path.abspath(__file__))  
-			
-			# 打印脚本文件所在的目录  
-			print("脚本所在目录是:", script_dir)
-			
 			for dirpath, dirnames, filenames in os.walk("/home/vsts/work/1/s"):  
 				print(f"当前目录: {dirpath}")  
 				for dirname in dirnames:  
