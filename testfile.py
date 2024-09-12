@@ -259,6 +259,9 @@ if True:
 			# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
 			os.chdir(script_dir)  
 
+			result = subprocess.run(['git', 'log', '--oneline', '-n', '5'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)  
+			print(569, result.stdout)  
+	
 			# 执行命令并获取结果  
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(123, result.stdout)  
