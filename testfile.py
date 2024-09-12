@@ -267,6 +267,10 @@ if True:
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(234, result.stdout)  
 
+			subprocess.run(['git', 'checkout', '-b', 'CI-Files-Store'], check=True)  
+			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
+			print(666, result.stdout) 
+			
 			# 提交更改到本地仓库  
 			# 注意：这里需要提供一个提交消息，你可以根据实际情况修改它  
 			subprocess.run(['git', 'commit', csv_file], check=True)  
