@@ -259,10 +259,6 @@ if True:
 			# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
 			os.chdir(script_dir)  
 
-			subprocess.run(['git', 'branch'], capture_output=True, text=True, check=True)  
-			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
-			print(888, result.stdout)  
-			
 			# 执行命令并获取结果  
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(123, result.stdout)  
@@ -276,10 +272,6 @@ if True:
 			print(666, result.stdout) 
 			
 			# 提交更改到本地仓库  
-			# 注意：这里需要提供一个提交消息，你可以根据实际情况修改它  
-			subprocess.run(['git', 'commit', csv_file], check=True)  
-			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
-			print(333, result.stdout) 
 			subprocess.run(['git', 'commit', '-m', 'Add CSV file: ' + csv_file], check=True)  
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(567, result.stdout) 
