@@ -262,6 +262,10 @@ if True:
 			
 			result = subprocess.run(['git', 'log', '--oneline', '-n', '5'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)  
 			print(569, result.stdout)  
+
+			result = subprocess.run(['git', 'branch', '-a'], capture_output=True, text=True, check=True)  
+			# 打印命令的输出结果  
+			print(result.stdout)  
 			
 			subprocess.run(['git', 'push', 'origin', 'CI-project'], check=True)  
 			# 执行命令并获取结果  
