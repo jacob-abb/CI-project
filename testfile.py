@@ -263,13 +263,13 @@ if True:
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(123, result.stdout)  
 			# 添加CSV文件到暂存区  
-			subprocess.run(['git', 'add', csv_file], check=True)  
+			subprocess.run(['git', 'add', <csv_file>], check=True)  
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(234, result.stdout)  
 
 			# 提交更改到本地仓库  
 			# 注意：这里需要提供一个提交消息，你可以根据实际情况修改它  
-			subprocess.run(['git', 'commit', csv_file], check=True)  
+			subprocess.run(['git', 'commit', <csv_file>], check=True)  
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(333, result.stdout) 
 			subprocess.run(['git', 'commit', '-m', 'Add CSV file: ' + csv_file], check=True)  
