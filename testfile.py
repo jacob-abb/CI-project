@@ -267,10 +267,10 @@ if True:
 			# 打印命令的输出结果  
 			print(result.stdout)  
 			
-			subprocess.run(['git', 'push', 'origin', 'CI-project'], check=True)  
+			# subprocess.run(['git', 'push', 'origin', 'CI-project'], check=True)  
 			# 执行命令并获取结果  
-			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
-			print(123, result.stdout)  
+			# result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
+			# print(123, result.stdout)  
 			# 添加CSV文件到暂存区  
 			subprocess.run(['git', 'add', csv_file], check=True)  
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
@@ -281,9 +281,9 @@ if True:
 			print(666, result.stdout) 
 			
 			# 提交更改到本地仓库  
-			subprocess.run(['git', 'commit', '-m', 'Add CSV file: ' + csv_file], check=True)  
-			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
-			print(567, result.stdout) 
+			# subprocess.run(['git', 'commit', '-m', 'Add CSV file: ' + csv_file], check=True)  
+			# result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
+			# print(567, result.stdout) 
 			# 如果需要，将更改推送到GitHub的远程仓库  
 			# 替换'origin'为你的远程仓库名称，'main'或'master'或你的分支名为目标分支  
 			# subprocess.run(['git', 'push', 'origin', 'main'], check=True)  # 根据实际情况调整分支名  
