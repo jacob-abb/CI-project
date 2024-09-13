@@ -30,6 +30,8 @@ steps:
 
 - script: |
     python testfile.py $(organization) $(project) $(query_id) 
+    mkdir -p $(Build.ArtifactStagingDirectory)/outputs  
+    mv output-Bug.csv $(Build.ArtifactStagingDirectory)/outputs/ 
   displayName: 'testfile'
 
 - task: PublishBuildArtifacts@1  
