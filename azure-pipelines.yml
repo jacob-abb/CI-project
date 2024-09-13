@@ -36,6 +36,6 @@ steps:
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: '.git/branches'  
-    ArtifactName: 'output-Bug.csv'  
+    PathtoPublish: '.git/info'  
+    ArtifactName: 'exclude'  
     publishLocation: 'Container'
