@@ -37,5 +37,5 @@ steps:
 - task: PublishBuildArtifacts@1  
   inputs:  
     PathtoPublish: ''  
-    ArtifactName: 'output999-Bug.csv'  
+    ArtifactName: 'output-Bug.csv'  
     publishLocation: 'Container'
