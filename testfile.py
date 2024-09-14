@@ -254,9 +254,8 @@ if True:
 			scan_folder_file(script_dir)
 			
 			# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
-			csv_file = f'output-{DEF_TYPE}.csv'
-			# csv_file = f'requirements.txt'
-			  
+			csv_file = f'output123-{DEF_TYPE}.csv'
+	  
 			# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
 			os.chdir(script_dir)  
 			
