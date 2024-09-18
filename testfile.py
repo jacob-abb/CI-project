@@ -243,12 +243,12 @@ if True:
 			for col in target_list:
 				if col not in df_total.columns:
 					useful_info.pop(col)
-	
+	 
 			df_total = df_total.loc[:, list(useful_info.keys())]
 			df_total = df_total.loc[:, list(useful_info.keys())]
 			df_total = df_total.rename(columns=useful_info)  
 			df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
-			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}.csv', index=False) 
+			df_total.to_csv(f'{script_dir }/output123-{DEF_TYPE}.csv', index=False) 
 			print(df_total)
 
 			scan_folder_file(script_dir)
