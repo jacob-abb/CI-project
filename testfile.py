@@ -75,65 +75,7 @@ if True:
 	
 	# Azure DevOps REST API版本  
 	api_version = "6.0"  
-	
-	DEF_TYPE = "Bug"
-	
-	if DEF_TYPE == "Bug":
-		useful_info = {"id": "id",
-						"rev": "rev",
-						"System.WorkItemType": "Work Item Type",
-						"System.State": "State",
-						"System.IterationPath": "Iteration Path",	
-						"System.AreaPath": "Area Path",		
-						"System.CreatedBy._.displayName": "Created By",
-						"System.CreatedDate": "Created Date",	
-						"System.AssignedTo._.uniqueName": "Assigned To",		
-						"System.Title": "Title",	
-						"Microsoft.VSTS.Scheduling.Effort": "Effort",		
-						"System.Tags": "Tags",	
-						"System.Description": "Description",
-						"System.ChangedBy._.displayName": "Changed By",
-						"Microsoft.VSTS.Common.ClosedDate": "Closed Date",
-						"Microsoft.VSTS.Common.ClosedBy._.displayName": "Closed By",
-						"Microsoft.VSTS.Common.ActivatedDate": "Activated Date",
-						"Microsoft.VSTS.Common.ActivatedBy._.displayName": "Activated By"
-					
-					}
-	elif DEF_TYPE == 'Epic_Feature':
-		# Target Date 
-		# Start Date
-		# Target System Release
-		# Definition of Ready
-		# Definition of Done
-		# Acceptance Criteria
-		# Parent
-		useful_info = {"id": "id",
-						"rev": "rev",
-						"System.WorkItemType": "Work Item Type",
-						"System.State": "State",
-						"System.IterationPath": "Iteration Path",	
-						"System.AreaPath": "Area Path",		
-						"System.Reason": "Reason", 
-						"Microsoft.VSTS.Common.Severity": "Severity",
-						"Custom.ScopeBug": "ScopeBug",
-						"Custom.Cloned": "Cloned",
-						"Custom.HowFound": "HowFound",
-						"System.CreatedBy._.displayName": "Created By",
-						"System.CreatedDate": "Created Date",	
-						"System.AssignedTo._.uniqueName": "Assigned To",		
-						"System.Title": "Title",	
-						"System.Tags": "Tags",	
-						"System.Description": "Description",
-						"System.ChangedBy._.displayName": "Changed By",
-						"Microsoft.VSTS.Common.ClosedDate": "Closed Date",
-						"Microsoft.VSTS.Common.ClosedBy._.displayName": "Closed By",
-						"Microsoft.VSTS.Common.ActivatedDate": "Activated Date",
-						"Microsoft.VSTS.Common.ActivatedBy._.displayName": "Activated By",
-						"Microsoft.VSTS.Scheduling.Effort": "Effort"
-					}
-	else:
-		useful_info = {}
-	
+		
 	def flatten_dict(d, parent_key='', sep='_'):  
 		"""  
 		将嵌套字典扁平化为一个列表的键值对。  
@@ -443,24 +385,83 @@ if True:
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Deploy Tool Components\\\\1.0\\\\1.0.0'
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Configuration Manager\\\\1.0\\\\1.0.0'
 	ql_path = 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0'
+
+	DEF_TYPE = ""
+	for DEF_TYPE in ["Bug", 'Epic_Feature']:
+		if DEF_TYPE == "Bug":
+			useful_info = {"id": "id",
+							"rev": "rev",
+							"System.WorkItemType": "Work Item Type",
+							"System.State": "State",
+							"System.IterationPath": "Iteration Path",	
+							"System.AreaPath": "Area Path",		
+							"System.CreatedBy._.displayName": "Created By",
+							"System.CreatedDate": "Created Date",	
+							"System.AssignedTo._.uniqueName": "Assigned To",		
+							"System.Title": "Title",	
+							"Microsoft.VSTS.Scheduling.Effort": "Effort",		
+							"System.Tags": "Tags",	
+							"System.Description": "Description",
+							"System.ChangedBy._.displayName": "Changed By",
+							"Microsoft.VSTS.Common.ClosedDate": "Closed Date",
+							"Microsoft.VSTS.Common.ClosedBy._.displayName": "Closed By",
+							"Microsoft.VSTS.Common.ActivatedDate": "Activated Date",
+							"Microsoft.VSTS.Common.ActivatedBy._.displayName": "Activated By"
+						
+						}
+		elif DEF_TYPE == 'Epic_Feature':
+			# Target Date 
+			# Start Date
+			# Target System Release
+			# Definition of Ready
+			# Definition of Done
+			# Acceptance Criteria
+			# Parent
+			useful_info = {"id": "id",
+							"rev": "rev",
+							"System.WorkItemType": "Work Item Type",
+							"System.State": "State",
+							"System.IterationPath": "Iteration Path",	
+							"System.AreaPath": "Area Path",		
+							"System.Reason": "Reason", 
+							"Microsoft.VSTS.Common.Severity": "Severity",
+							"Custom.ScopeBug": "ScopeBug",
+							"Custom.Cloned": "Cloned",
+							"Custom.HowFound": "HowFound",
+							"System.CreatedBy._.displayName": "Created By",
+							"System.CreatedDate": "Created Date",	
+							"System.AssignedTo._.uniqueName": "Assigned To",		
+							"System.Title": "Title",	
+							"System.Tags": "Tags",	
+							"System.Description": "Description",
+							"System.ChangedBy._.displayName": "Changed By",
+							"Microsoft.VSTS.Common.ClosedDate": "Closed Date",
+							"Microsoft.VSTS.Common.ClosedBy._.displayName": "Closed By",
+							"Microsoft.VSTS.Common.ActivatedDate": "Activated Date",
+							"Microsoft.VSTS.Common.ActivatedBy._.displayName": "Activated By",
+							"Microsoft.VSTS.Scheduling.Effort": "Effort"
+						}
+		else:
+			useful_info = {}
 	
-	if DEF_TYPE == 'Bug':
-		ql_str = """
-		{
-			"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Bug') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0' ORDER BY [System.Id] DESC"
-		}
-		"""
-		query_workitems(area_path, ql_str)
-	elif DEF_TYPE == 'Epic_Feature':
-	
-		ql_str = """
-		{
-			"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Epic', 'Feature') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0' ORDER BY [System.Id] DESC"
-		}
-		"""
-		query_workitems(area_path, ql_str)
-	else:
-		pass
+		
+		if DEF_TYPE == 'Bug':
+			ql_str = """
+			{
+				"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Bug') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0' ORDER BY [System.Id] DESC"
+			}
+			"""
+			query_workitems(area_path, ql_str)
+		elif DEF_TYPE == 'Epic_Feature':
+		
+			ql_str = """
+			{
+				"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Epic', 'Feature') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0' ORDER BY [System.Id] DESC"
+			}
+			"""
+			query_workitems(area_path, ql_str)
+		else:
+			pass
 	
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\baseline 7.0 HMI-Feature-Epic.csv", 
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\current output-Feature-Epic.csv"
