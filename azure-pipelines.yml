@@ -39,3 +39,9 @@ steps:
     PathtoPublish: 'output123-Bug.csv'  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
+
+- task: PublishBuildArtifacts@1  
+  inputs:  
+    PathtoPublish: 'output123-Epic_Feature.csv'  
+    ArtifactName: 'output-csv'  
+    publishLocation: 'Container'
