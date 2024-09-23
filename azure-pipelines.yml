@@ -36,12 +36,12 @@ steps:
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: 'output123-Bug.csv'  
+    PathtoPublish: 'output-Bug-Certificate-Management.csv'  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: 'output123-Epic_Feature.csv'  
+    PathtoPublish: 'output-Epic_Feature-Certificate-Management.csv'  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
