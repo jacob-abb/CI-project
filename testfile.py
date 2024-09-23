@@ -471,6 +471,6 @@ if True:
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Scope bugs 7.0 HMI-07192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Introduced bugs 7.0 HMI-7192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\output-Bugs.csv"
-	compare_bugs(baseline_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\NGHMI 7.0 CMS2.0.0_0827\\Scope bugs xP0 7.0 HMI- 07192024.csv", 
-			  introduced_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\NGHMI 7.0 CMS2.0.0_0827\\ALL Introduced bugs xP0 HMI - 07192024.csv",
-				current_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\NGHMI 7.0 CMS2.0.0_0827\\output-Bug-Certificate-Management.csv")	
+	compare_bugs(baseline_path="Scope bugs 7.0 HMI- 2da89.csv", 
+			  introduced_path="Introduced bugs 7.0 HMI.csv",
+				current_path="output-Bug-Certificate-Management.csv")	
