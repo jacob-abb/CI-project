@@ -373,21 +373,20 @@ if True:
 		)
 		page.render("Bug_Status_Demo.html")  # 生成HTML文件
 	
-	
 	# 构造WIQL查询以获取Epic和Feature的基本信息  
 	#"PCP\\Operations\\NextGenHMI\\Certificate Management\\2.0\\2.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Operations Client\\3.0\\3.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Deploy Tool Components\\1.0\\1.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Configuration Manager\\1.0\\1.0.0"
-	area_path = "PCP\\Operations\\NextGenHMI\\Operations Client\\3.0\\3.0.0"
+	area_path = "PCP\\Operations\\NextGenHMI\\Certificate Management\\2.0\\2.0.0"
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Certificate Management\\\\2.0\\\\2.0.0'
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0'
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Deploy Tool Components\\\\1.0\\\\1.0.0'
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Configuration Manager\\\\1.0\\\\1.0.0'
-	ql_path = 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0'
+	ql_path = 'PCP\\\\Operations\\\\NextGenHMI\\\\Certificate Management\\\\2.0\\\\2.0.0'
 
 	DEF_TYPE = ""
-	for DEF_TYPE in ["Bug", 'Epic_Feature']:
+	for DEF_TYPE in []: # "Bug", 'Epic_Feature'
 		if DEF_TYPE == "Bug":
 			useful_info = {"id": "id",
 							"rev": "rev",
@@ -448,7 +447,7 @@ if True:
 		if DEF_TYPE == 'Bug':
 			ql_str = """
 			{
-				"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Bug') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0' ORDER BY [System.Id] DESC"
+				"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Bug') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Certificate Management\\\\2.0\\\\2.0.0' ORDER BY [System.Id] DESC"
 			}
 			"""
 			query_workitems(area_path, ql_str)
@@ -456,7 +455,7 @@ if True:
 		
 			ql_str = """
 			{
-				"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Epic', 'Feature') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0' ORDER BY [System.Id] DESC"
+				"query": "SELECT [System.Id], [System.WorkItemType], [System.Title], [System.State], [System.AreaPath] FROM WorkItems WHERE [System.WorkItemType] IN ('Epic', 'Feature') AND [System.AreaPath] UNDER 'PCP\\\\Operations\\\\NextGenHMI\\\\Certificate Management\\\\2.0\\\\2.0.0' ORDER BY [System.Id] DESC"
 			}
 			"""
 			query_workitems(area_path, ql_str)
@@ -466,8 +465,8 @@ if True:
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\baseline 7.0 HMI-Feature-Epic.csv", 
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\current output-Feature-Epic.csv"
 	
-	# compare_feature_epic_state(baseline_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\NGT HMI 7.0xP0 Features-Epic.csv", 
-	# 					   current_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\ALL baselines xP0 HMI - 07192024\\output-Epic_Feature-Operations-Client.csv")
+	compare_feature_epic_state(baseline_path="7.0 NGT HMI-Features-Epic.csv", 
+				   current_path="output-Epic_Feature-Certificate-Management.csv")
 	
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Scope bugs 7.0 HMI-07192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Introduced bugs 7.0 HMI-7192024.csv"
