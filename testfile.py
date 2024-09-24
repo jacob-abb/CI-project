@@ -303,7 +303,7 @@ if True:
 
 		with open("feature_epic_log.txt", 'w', encoding='utf-8') as file:
 			file.write(markdown_content)
-			print(f"Markdown文件已保存到：{"feature_epic_log.txt"}")
+			print(f"Markdown文件已保存到：feature_epic_log.txt")
 			
 			# convert to the html table display
 			# 创建 Table 组件  
@@ -374,7 +374,7 @@ if True:
 
 		with open("bug_log.txt", 'w', encoding='utf-8') as file:
 			file.write(markdown_content)
-			print(f"Markdown文件已保存到：{"bug_log.txt"}")
+			print(f"Markdown文件已保存到：bug_log.txt")
 	
 		# 创建一个图片组件
 		image = Image()
