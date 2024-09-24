@@ -301,15 +301,16 @@ if True:
 			changed_rows = merged[(~(merged['Effort_old'] == merged['Effort_new'])) & (merged["Effort_old"].notnull())]  
 			print(f"{key} changed rows:\n", changed_rows)
 
-		with open(f"{script_dir }/feature_epic_log.txt", 'w', encoding='utf-8') as file:
-			file.write(markdown_content)
-			print(f"Markdown文件已保存到：feature_epic_log.txt")
-			
 			# convert to the html table display
 			# 创建 Table 组件  
 			include_result0 = generate_table_html(new_rows, f"Have {key} been added to the scope since last STECO? (M10)({len(new_rows)} {key} added, with {new_rows['Effort'].sum()} manhours (effort) in total)")
 			include_result1 = generate_table_html(changed_rows, f"Has {key} effort increased since last STECO? (M3-M5) ({key} added {len(new_rows)} , {new_rows_notnan['Effort'].sum()} manhours increased, including {len(new_rows_nan)} without estimation)")
 	
+		with open(f"{script_dir}/feature_epic_log.txt", 'w', encoding='utf-8') as file:
+			file.write(markdown_content)
+			scan_folder_file(script_dir)
+			print(f"Markdown文件已保存到：feature_epic_log.txt")
+			
 		#####################################################################################################
 	
 		# 创建一个图片组件
@@ -372,8 +373,9 @@ if True:
 		print(df_new_introduced_high_md_table)
 		markdown_content += df_new_introduced_high_md_table
 
-		with open(f"{script_dir }/bug_log.txt", 'w', encoding='utf-8') as file:
+		with open(f"{script_dir}/bug_log.txt", 'w', encoding='utf-8') as file:
 			file.write(markdown_content)
+			scan_folder_file(script_dir)
 			print(f"Markdown文件已保存到：bug_log.txt")
 	
 		# 创建一个图片组件
