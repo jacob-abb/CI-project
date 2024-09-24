@@ -48,3 +48,16 @@ steps:
     PathtoPublish: 'output-Epic_Feature-$(task_name).csv'  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
+
+- task: PublishBuildArtifacts@1  
+  inputs:  
+    PathtoPublish: 'feature_epic_log.txt'  
+    ArtifactName: 'output-csv'  
+    publishLocation: 'Container'
+
+- task: PublishBuildArtifacts@1  
+  inputs:  
+    PathtoPublish: 'bug_log.txt'  
+    ArtifactName: 'output-csv'  
+    publishLocation: 'Container'
+    
