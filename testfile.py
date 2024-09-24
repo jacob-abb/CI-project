@@ -63,9 +63,9 @@ if True:
 	organization = sys.argv[1]
 	project = sys.argv[2]
 	query_id = sys.argv[3]
-	task_name = sys.argv[4]
-	big_ver = sys.argv[5]
-	sub_ver = sys.argv[6]
+	task_name = sys.argv[4] + " " + sys.argv[5]
+	big_ver = sys.argv[6]
+	sub_ver = sys.argv[7]
 
 	# Azure DevOps组织URL（注意替换为你的组织名）  
 	organization_url = sys.argv[1]
