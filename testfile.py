@@ -63,7 +63,10 @@ if True:
 	organization = sys.argv[1]
 	project = sys.argv[2]
 	query_id = sys.argv[3]
-	
+	task_name = sys.argv[4]
+	big_ver = sys.argv[5]
+	sub_ver = sys.argv[6]
+
 	# Azure DevOps组织URL（注意替换为你的组织名）  
 	organization_url = sys.argv[1]
 	# 你的个人访问令牌（PAT），请确保不要在代码库中直接暴露它  
@@ -374,16 +377,19 @@ if True:
 		page.render("Bug_Status_Demo.html")  # 生成HTML文件
 	
 	# 构造WIQL查询以获取Epic和Feature的基本信息  
+	task_name = "Certificate Management"
+	big_ver = "2.0"
+	sub_ver = "2.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Certificate Management\\2.0\\2.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Operations Client\\3.0\\3.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Deploy Tool Components\\1.0\\1.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Configuration Manager\\1.0\\1.0.0"
-	area_path = "PCP\\Operations\\NextGenHMI\\Certificate Management\\2.0\\2.0.0"
+	area_path = f"PCP\\Operations\\NextGenHMI\\{task_name}\\{big_ver}\\{sub_ver}"
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Certificate Management\\\\2.0\\\\2.0.0'
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Operations Client\\\\3.0\\\\3.0.0'
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Deploy Tool Components\\\\1.0\\\\1.0.0'
 	# 'PCP\\\\Operations\\\\NextGenHMI\\\\Configuration Manager\\\\1.0\\\\1.0.0'
-	ql_path = 'PCP\\\\Operations\\\\NextGenHMI\\\\Certificate Management\\\\2.0\\\\2.0.0'
+	ql_path = f'PCP\\\\Operations\\\\NextGenHMI\\\\{task_name}\\\\{big_ver}\\\\{sub_ver}'
 
 	DEF_TYPE = ""
 	for DEF_TYPE in []: # "Bug", 'Epic_Feature'
