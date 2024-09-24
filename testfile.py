@@ -241,7 +241,8 @@ if True:
 		#####################################################################################################
 		# epics
 		define_type = ["Feature", "Epic"] 
-	
+		markdown_content = "" # 存储markdown内容
+
 		for key in define_type:
 	
 			df_latest = df_current.loc[(df_current["Work Item Type"] == key) & (df_current["State"] == "Closed")]
@@ -257,10 +258,12 @@ if True:
 			one_month_ago = datetime.now() - timedelta(days=30)  
 			df_latest = df_latest.loc[(df_latest["Closed Date"] >= one_month_ago) , ["id", "Title", "Work Item Type", "State", "Effort", "Area Path", "Closed Date"]]
 	
-			print(f"###In last month, {len(df_latest)} {key} closed with {df_latest['Effort'].sum()} manhours finished. Links to {key} closed since last STECO.")
+			print(f"###In last month, {len(df_latest)} {key} closed with {df_latest['Effort'].sum()} manhours finished. Links to {key} closed since last STECO.\n")
+			markdown_content += f"###In last month, {len(df_latest)} {key} closed with {df_latest['Effort'].sum()} manhours finished. Links to {key} closed since last STECO.\n"
 			df_latest_md_table = df_latest.to_markdown()  
 			print(df_latest_md_table)
-	
+			markdown_content += df_latest_md_table
+			
 			table1 = generate_table_html(df_latest, "Is effort being 'burned' as per plan? (M3-M5)? ")
 			##############################################################################################
 	
@@ -284,9 +287,11 @@ if True:
 			new_rows_notnan = new_rows[new_rows["Effort"].notnull()] # 新增不包含NaN值
 	
 			print(f"Compared last STECO, {new_rows.shape[0]} new {key} added with {new_rows_notnan['Effort'].sum()} manhours increased. Link to increased Features\n")
+			markdown_content += f"Compared last STECO, {new_rows.shape[0]} new {key} added with {new_rows_notnan['Effort'].sum()} manhours increased. Link to increased Features\n"
 			df_new_rows_md_table = new_rows.to_markdown()  
 			print(df_new_rows_md_table)
-	
+			markdown_content += df_new_rows_md_table
+			
 			# 找出被筛除的行（在data_baseline中但不在data_latest中）  
 			# removed_rows = data_baseline[~data_baseline['ID'].isin(data_latest['ID'])]  
 			# print("removed rows:\n", removed_rows)  
@@ -295,7 +300,11 @@ if True:
 			merged = pd.merge(data_baseline, data_latest, on='id', suffixes=('_old', '_new'), how='outer')  
 			changed_rows = merged[(~(merged['Effort_old'] == merged['Effort_new'])) & (merged["Effort_old"].notnull())]  
 			print(f"{key} changed rows:\n", changed_rows)
-	
+
+		with open("feature_epic_log.txt", 'w', encoding='utf-8') as file:
+			file.write(markdown_content)
+			print(f"Markdown文件已保存到：{"feature_epic_log.txt"}")
+			
 			# convert to the html table display
 			# 创建 Table 组件  
 			include_result0 = generate_table_html(new_rows, f"Have {key} been added to the scope since last STECO? (M10)({len(new_rows)} {key} added, with {new_rows['Effort'].sum()} manhours (effort) in total)")
@@ -328,7 +337,8 @@ if True:
 	def compare_bugs(baseline_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Scope bugs 7.0&xP0 M2 Baseline.csv", 
 				  introduced_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Introduced bugs 7.0_05312024.csv", 
 					current_path="C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Scope bugs 7.0_05312024.csv"):# Bugs 
-	
+		markdown_content = "" # 存储markdown内容
+
 		df_latest = pd.read_csv(current_path)
 		df_baseline = pd.read_csv(baseline_path)
 	
@@ -354,10 +364,17 @@ if True:
 		table3 = generate_table_html(df_new_introduced_high, "Has the number of critical and high bugs not fixed increased since last STECO? (M14)")
 	
 		print(f"Since last STECO, {len(df_new_introduced)} new critical, {len(df_new_introduced_high)} new high bugs added.\n")
+		markdown_content += f"Since last STECO, {len(df_new_introduced)} new critical, {len(df_new_introduced_high)} new high bugs added.\n"
 		df_new_introduced_md_table = df_new_introduced.to_markdown()  
 		print(df_new_introduced_md_table)
+		markdown_content += df_new_introduced_md_table
 		df_new_introduced_high_md_table = df_new_introduced_high.to_markdown()  
 		print(df_new_introduced_high_md_table)
+		markdown_content += df_new_introduced_high_md_table
+
+		with open("bug_log.txt", 'w', encoding='utf-8') as file:
+			file.write(markdown_content)
+			print(f"Markdown文件已保存到：{"bug_log.txt"}")
 	
 		# 创建一个图片组件
 		image = Image()
