@@ -9,7 +9,10 @@ trigger:
 variables:  
   organization: 'https://dev.azure.com/ABB-BCI-PCP/'  
   project: 'PCP-Test'  
-  
+  task_name: "Certificate Management"
+  big_ver: "2.0"
+  sub_ver: "2.0.0"
+
 pool:
   vmImage: ubuntu-latest
 strategy:
@@ -36,12 +39,12 @@ steps:
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: 'output-Bug-Certificate-Management.csv'  
+    PathtoPublish: 'output-Bug-$(task_name).csv'  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: 'output-Epic_Feature-Certificate-Management.csv'  
+    PathtoPublish: 'output-Epic_Feature-$(task_name).csv'  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
