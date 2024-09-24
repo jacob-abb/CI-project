@@ -9,9 +9,9 @@ trigger:
 variables:  
   organization: 'https://dev.azure.com/ABB-BCI-PCP/'  
   project: 'PCP-Test'  
-  task_name: "Certificate Management"
-  big_ver: "2.0"
-  sub_ver: "2.0.0"
+  task_name: 'Certificate Management'
+  big_ver: '2.0'
+  sub_ver: '2.0.0'
 
 pool:
   vmImage: ubuntu-latest
