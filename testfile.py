@@ -193,7 +193,7 @@ if True:
 			df_total = df_total.loc[:, list(useful_info.keys())]
 			df_total = df_total.rename(columns=useful_info)  
 			df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
-			df_total.to_csv(f'{script_dir }/output123-{DEF_TYPE}.csv', index=False) 
+			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}-{project_name}.csv', index=False) 
 			print(df_total)
 
 			scan_folder_file(script_dir)
