@@ -61,7 +61,7 @@ if True:
 		print("Parameter", i, ":", sys.argv[i])
 	
 	organization = sys.argv[1]
-	project = sys.argv[2]
+	project = sys.argv[2] # Azure DevOps项目的名称  
 	query_id = sys.argv[3]
 	task_name = sys.argv[4] + " " + sys.argv[5]
 	big_ver = sys.argv[6]
@@ -73,9 +73,6 @@ if True:
 	# 你的个人访问令牌（PAT），请确保不要在代码库中直接暴露它  
 	# 为了安全起见，最好使用环境变量或加密的存储来管理PAT  
 	personal_access_token = sys.argv[3]
-	
-	# Azure DevOps项目的名称  
-	project_name = sys.argv[2]
 	
 	# Azure DevOps REST API版本  
 	api_version = "6.0"  
@@ -135,7 +132,7 @@ if True:
 	
 		# Azure DevOps项目的名称  
 		project_name = get_project_id("PCP") #"PCP-Test"  
-		print(project_name)
+
 		wiql_url = f'{organization_url}/{project_name}/_apis/wit/wiql?api-version=6.0'  
 		wiql = json.loads(ql_str)
 		print(wiql_url, wiql)
@@ -194,13 +191,13 @@ if True:
 			df_total = df_total.loc[:, list(useful_info.keys())]
 			df_total = df_total.rename(columns=useful_info)  
 			df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
-			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}-{project_name}.csv', index=False) 
+			df_total.to_csv(f'{script_dir }/output-{DEF_TYPE}-{task_name}.csv', index=False) 
 			print(df_total)
 
 			scan_folder_file(script_dir)
 			
 			# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
-			csv_file = f'output-{DEF_TYPE}-{project_name}.csv'
+			csv_file = f'output-{DEF_TYPE}-{task_name}.csv'
 	  
 			# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
 			os.chdir(script_dir)  
