@@ -377,9 +377,9 @@ if True:
 		page.render("Bug_Status_Demo.html")  # 生成HTML文件
 	
 	# 构造WIQL查询以获取Epic和Feature的基本信息  
-	task_name = "Certificate Management"
-	big_ver = "2.0"
-	sub_ver = "2.0.0"
+	#task_name = "Certificate Management"
+	#big_ver = "2.0"
+	#sub_ver = "2.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Certificate Management\\2.0\\2.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Operations Client\\3.0\\3.0.0"
 	#"PCP\\Operations\\NextGenHMI\\Deploy Tool Components\\1.0\\1.0.0"
@@ -392,7 +392,7 @@ if True:
 	ql_path = f'PCP\\\\Operations\\\\NextGenHMI\\\\{task_name}\\\\{big_ver}\\\\{sub_ver}'
 
 	DEF_TYPE = ""
-	for DEF_TYPE in []: # "Bug", 'Epic_Feature'
+	for DEF_TYPE in ["Bug", 'Epic_Feature']:  
 		if DEF_TYPE == "Bug":
 			useful_info = {"id": "id",
 							"rev": "rev",
