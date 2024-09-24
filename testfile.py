@@ -67,6 +67,7 @@ if True:
 	big_ver = sys.argv[6]
 	sub_ver = sys.argv[7]
 
+	print(organization, project, query_id, task_name, big_ver, sub_ver)
 	# Azure DevOps组织URL（注意替换为你的组织名）  
 	organization_url = sys.argv[1]
 	# 你的个人访问令牌（PAT），请确保不要在代码库中直接暴露它  
