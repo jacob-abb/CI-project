@@ -7,12 +7,11 @@ trigger:
 - main
 
 variables:  
+  organization: 'https://dev.azure.com/ABB-BCI-PCP/'  
+  project: 'PCP-Test'  
   task_name: 'Certificate Management'
   big_ver: '2.0'
   sub_ver: '2.0.0'
-  organization: 'https://dev.azure.com/ABB-BCI-PCP/'  
-  project: 'PCP-Test'  
-
 
 pool:
   vmImage: ubuntu-latest
@@ -33,7 +32,7 @@ steps:
   displayName: 'Install dependencies'
 
 - script: |
-    python testfile.py $(organization) $(project) $(query_id) 
+    python testfile.py $(organization) $(project) $(query_id) $(task_name) $(big_ver) $(sub_ver) 
     mkdir -p $(Build.ArtifactStagingDirectory)/output  
     mv output-Bug.csv $(Build.ArtifactStagingDirectory)/output/ 
   displayName: 'testfile'
