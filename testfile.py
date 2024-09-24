@@ -218,9 +218,9 @@ if True:
 			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
 			print(234, result.stdout)  
 
-			subprocess.run(['git', 'checkout', '-b', 'CI-Files-Store'], check=True)  
-			result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
-			print(666, result.stdout) 
+			#subprocess.run(['git', 'checkout', '-b', 'CI-Files-Store'], check=True)  
+			#result = subprocess.run(['git', 'status'], capture_output=True, text=True, check=True)  
+			#print(666, result.stdout) 
 			
 			# 提交更改到本地仓库  
 			# subprocess.run(['git', 'commit', '-m', 'Add CSV file: ' + csv_file], check=True)  
@@ -308,7 +308,7 @@ if True:
 	
 		with open(f"{script_dir}/feature_epic_log.txt", 'w', encoding='utf-8') as file:
 			file.write(markdown_content)
-			scan_folder_file(script_dir)
+			#scan_folder_file(script_dir)
 			print(f"Markdown文件已保存到：feature_epic_log.txt")
 			
 		#####################################################################################################
@@ -375,7 +375,7 @@ if True:
 
 		with open(f"{script_dir}/bug_log.txt", 'w', encoding='utf-8') as file:
 			file.write(markdown_content)
-			scan_folder_file(script_dir)
+			#scan_folder_file(script_dir)
 			print(f"Markdown文件已保存到：bug_log.txt")
 	
 		# 创建一个图片组件
