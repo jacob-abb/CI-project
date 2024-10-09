@@ -267,14 +267,15 @@ if True:
 				df_total = df_total.loc[:, list(self.useful_info.keys())]
 				df_total = df_total.rename(columns=self.useful_info)  
 				df_total = df_total.loc[df_total['Area Path'].isin([area_path])]
-				df_total.to_csv(f'output-{type}.csv', index=False) 
+
+				# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
+				csv_file = f'output-{type}-{self.task_name}.csv'
+			
+				df_total.to_csv(csv_file, index=False) 
 				print(df_total)
 
 				scan_folder_file(self.script_dir)
-				
-				# 假设CSV文件已经由Python脚本生成，并且位于当前工作目录下  
-				csv_file = f'output-{type}-{self.task_name}.csv'
-		  
+
 				# Git命令将在这个目录下执行，切换到Git仓库的目录（如果当前工作目录不是Git仓库的根目录）  
 				os.chdir(self.script_dir)  
 				
@@ -505,11 +506,11 @@ if True:
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\current output-Feature-Epic.csv"
 	
 	task_obj.compare_feature_epic_state(baseline_path="7.0 NGT HMI-Features-Epic.csv", 
-				   current_path="output-Epic_Feature-Certificate-Management.csv")
+				   current_path=f"output-Epic_Feature-{task_name}.csv")
 	
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Scope bugs 7.0 HMI-07192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Introduced bugs 7.0 HMI-7192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\output-Bugs.csv"
 	task_obj.compare_bugs(baseline_path="Scope bugs 7.0 HMI- 2da89.csv", 
 				introduced_path="Introduced bugs 7.0 HMI.csv",
-				current_path="output-Bug-Certificate-Management.csv")	
+				current_path=f"output-Bug-{task_name}.csv")	
