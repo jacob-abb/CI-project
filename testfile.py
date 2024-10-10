@@ -505,12 +505,12 @@ if True:
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\baseline 7.0 HMI-Feature-Epic.csv", 
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\current output-Feature-Epic.csv"
 	
-	task_obj.compare_feature_epic_state(baseline_path="7.0 NGT HMI-Features-Epic.csv", 
+	task_obj.compare_feature_epic_state(baseline_path=f"7.0 NGT HMI-Features-Epic-{task_name}.csv", 
 				   current_path=f"output-Epic_Feature-{task_name}.csv")
 	
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Scope bugs 7.0 HMI-07192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\Introduced bugs 7.0 HMI-7192024.csv"
 	#"C:\\Users\\CNJAYUA1\\Downloads\\ADO Project\\Baselines 7.0 HMI-07192024\\output-Bugs.csv"
-	task_obj.compare_bugs(baseline_path="Scope bugs 7.0 HMI- 2da89.csv", 
-				introduced_path="Introduced bugs 7.0 HMI.csv",
+	task_obj.compare_bugs(baseline_path=f"Scope bugs 7.0 HMI-{task_name}.csv", 
+				introduced_path=f"Introduced bugs 7.0 HMI-{task_name}.csv",
 				current_path=f"output-Bug-{task_name}.csv")	
