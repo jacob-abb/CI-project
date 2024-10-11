@@ -449,8 +449,6 @@ if True:
 			with open("bug_log.txt", 'w', encoding='utf-8') as file:
 				file.write(markdown_content)
 				print(f"Markdown文件已保存到:{'bug_log.txt'}")
-				df_latest.to_csv(f'output-Bug-{self.task_name}.csv', index=False) 
-				scan_folder_file(self.script_dir)
 			# 创建一个图片组件
 			image = Image()
 			# 添加图片，参数依次为图片路径，图片宽度，图片高度
