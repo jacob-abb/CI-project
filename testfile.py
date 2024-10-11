@@ -384,8 +384,6 @@ if True:
 			with open("feature_epic_log.txt", 'w', encoding='utf-8') as file:
 				file.write(markdown_content)
 				print(f"Markdown文件已保存到:{'feature_epic_log.txt'}")
-				df_current.to_csv(f'output-Epic_Feature-{self.task_name}.csv', index=False) 
-				scan_folder_file(self.script_dir)
 			#####################################################################################################
 
 			# 创建一个图片组件
