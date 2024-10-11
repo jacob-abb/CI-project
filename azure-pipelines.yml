@@ -31,7 +31,7 @@ steps:
 - script: |
     python testfile.py $(organization) $(project) $(query_id) $(def_task_name) $(def_big_ver) $(def_sub_ver) 
     mkdir -p $(Build.ArtifactStagingDirectory)/output  
-    mv output-Bug.csv $(Build.ArtifactStagingDirectory)/output/ 
+    mv output-Bug-$(def_task_name).csv $(Build.ArtifactStagingDirectory)/output/ 
   displayName: 'testfile'
 
 - task: PublishBuildArtifacts@1  
