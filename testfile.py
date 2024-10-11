@@ -384,6 +384,8 @@ if True:
 			with open("feature_epic_log.txt", 'w', encoding='utf-8') as file:
 				file.write(markdown_content)
 				print(f"Markdown文件已保存到:{'feature_epic_log.txt'}")
+				df_current.to_csv(f'output-{type}-{self.task_name}.csv', index=False) 
+
 			#####################################################################################################
 
 			# 创建一个图片组件
@@ -449,7 +451,8 @@ if True:
 			with open("bug_log.txt", 'w', encoding='utf-8') as file:
 				file.write(markdown_content)
 				print(f"Markdown文件已保存到:{'bug_log.txt'}")
-
+				df_latest.to_csv(f'output-{type}-{self.task_name}.csv', index=False) 
+				
 			# 创建一个图片组件
 			image = Image()
 			# 添加图片，参数依次为图片路径，图片宽度，图片高度
