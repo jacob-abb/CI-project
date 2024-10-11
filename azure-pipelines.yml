@@ -31,18 +31,18 @@ steps:
 - script: |
     python testfile.py $(organization) $(project) $(query_id) $(def_task_name) $(def_big_ver) $(def_sub_ver) 
     mkdir -p $(Build.ArtifactStagingDirectory)/output  
-    mv "output-Bug-\"$(def_task_name)\".csv" $(Build.ArtifactStagingDirectory)/output/ 
+    mv "output-Bug-$(def_task_name).csv" $(Build.ArtifactStagingDirectory)/output/ 
   displayName: 'testfile'
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: "output-Bug-\"$(def_task_name)\".csv"  
+    PathtoPublish: "output-Bug-$(def_task_name).csv"  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
 
 - task: PublishBuildArtifacts@1  
   inputs:  
-    PathtoPublish: "output-Epic_Feature-\"$(def_task_name)\".csv"  
+    PathtoPublish: "output-Epic_Feature-$(def_task_name).csv"  
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
 
