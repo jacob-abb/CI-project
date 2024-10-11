@@ -52,5 +52,10 @@ steps:
     ArtifactName: 'output-csv'  
     publishLocation: 'Container'
     
+- task: PublishBuildArtifacts@1  
+  inputs:  
+    PathtoPublish: "output-Bug-$(def_task_name).csv"  
+    ArtifactName: 'output-csv'  
+    publishLocation: 'Container'
 
 
